@@ -72,7 +72,10 @@ static NSDateFormatter *dateFormatter;
             break;
     }
 
-    NSString *dateString = [dateFormatter stringFromDate:(logMessage->timestamp)];
+    NSString *dateString;
+    @synchronized (dateFormatter) {
+        dateString  = [dateFormatter stringFromDate:(logMessage->timestamp)];
+    }
 
     return [NSString stringWithFormat:@"%@ %@ -[%@ %@][Line %d] %@", logLevel, dateString, logMessage.fileName, logMessage.methodName, logMessage->lineNumber, logMessage->logMsg];
 }
