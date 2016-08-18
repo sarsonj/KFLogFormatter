@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/trispo/KFLogFormatter.git", :tag => s.version.to_s }
   s.requires_arc = true
   s.source_files = 'Classes'
-  s.dependency 'CocoaLumberjack', '~> 1.6'
+  s.dependency 'CocoaLumberjack', '~> 2.0'
   
 end
